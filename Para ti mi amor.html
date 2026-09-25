@@ -1,0 +1,556 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eres mi felicidad</title>
+
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* =========================
+           ESTILOS GENERALES
+           ========================= */
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            color: #333;
+            transition: background-color 0.5s ease;
+            overflow: hidden;
+        }
+
+
+        /* =========================
+           TÍTULOS
+           ========================= */
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           PANTALLAS
+           ========================= */
+
+        .screen {
+            display: none;
+            animation: fadeIn 0.8s ease;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .active {
+            display: block;
+        }
+
+
+        /* =========================
+           IMÁGENES PRINCIPALES
+           ========================= */
+
+        .main-img {
+            width: 280px;
+            height: auto;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            border: none;
+            box-shadow: none;
+        }
+
+        .main-img:hover {
+            transform: scale(1.05);
+        }
+
+
+        /* =========================
+           CARTA
+           ========================= */
+
+        .card {
+            background: repeating-linear-gradient(
+                white,
+                white 28px,
+                #e3e3e3 29px
+            );
+
+            border-radius: 0;
+            padding: 40px 60px;
+            border: 2px solid #e5e5e5;
+
+            width: 95%;
+            max-width: 900px;
+
+            text-align: left;
+            margin: 0 auto;
+
+            box-sizing: border-box;
+
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+
+            animation: fadeIn 1s ease;
+        }
+
+
+        /* Título de la carta */
+
+        .card h3 {
+            font-family: "Dancing Script", cursive;
+            font-size: 2em;
+            text-align: left;
+            margin-bottom: 20px;
+            margin-left: 10px;
+            color: #444;
+        }
+
+
+        /* Texto de la carta */
+
+        .card p {
+            font-family: "Poppins", sans-serif;
+            font-size: 1.1em;
+            line-height: 1.8;
+            text-align: justify;
+            color: #444;
+            margin: 12px 0;
+        }
+
+
+        /* =========================
+           BOTÓN
+           ========================= */
+
+        .return-btn {
+            margin-top: 25px;
+            padding: 10px 20px;
+
+            font-size: 1em;
+
+            border: none;
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            background-color: #ff4f81;
+            color: white;
+        }
+
+        .return-btn:hover {
+            background-color: #ff2a66;
+        }
+
+
+        /* =========================
+           ANIMACIÓN DE PANTALLAS
+           ========================= */
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+        }
+
+
+        /* =========================
+           CORAZONES
+           ========================= */
+
+        .heart {
+            position: absolute;
+            bottom: -20px;
+
+            color: pink;
+
+            font-size: 20px;
+
+            pointer-events: none;
+
+            animation: float 6s linear forwards;
+
+            z-index: 999;
+        }
+
+
+        @keyframes float {
+
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) scale(1.5);
+                opacity: 0;
+            }
+
+        }
+
+
+        /* =========================
+           YOUTUBE
+           ========================= */
+
+        #youtubePlayer {
+            position: absolute;
+
+            width: 1px;
+            height: 1px;
+
+            left: -100px;
+            top: -100px;
+
+            border: none;
+        }
+
+
+        /* =========================
+           CELULARES
+           ========================= */
+
+        @media (max-width: 600px) {
+
+            .card {
+                padding: 20px 15px;
+                width: 95%;
+            }
+
+            .card h3 {
+                font-size: 1.6em;
+                text-align: center;
+                margin-left: 0;
+            }
+
+            .card p {
+                font-size: 1em;
+                line-height: 1.7;
+                text-align: left;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .main-img {
+                width: 220px;
+            }
+
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =================================
+         REPRODUCTOR DE YOUTUBE
+         ================================= -->
+
+    <iframe
+        id="youtubePlayer"
+        src="https://www.youtube.com/embed/dvTda4TDoeg?enablejsapi=1&playsinline=1"
+        allow="autoplay">
+    </iframe>
+
+
+    <!-- =================================
+         PANTALLA 1
+         ================================= -->
+
+    <div class="screen active" id="screen1">
+
+        <h2>
+            Holassss, te llegó un correo
+        </h2>
+
+        <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIoZc0uZUpJ3AnX7bdY3i7Kmz4D_5ow4-amORSQ83Kag&s=10"
+            alt="Correo"
+            class="main-img"
+            onclick="iniciarCarta()">
+
+    </div>
+
+
+    <!-- =================================
+         PANTALLA 2
+         ================================= -->
+
+    <div class="screen" id="screen2">
+
+        <h2>
+            Una cartita para ustedd
+        </h2>
+
+        <img
+            src="https://i.pinimg.com/736x/08/8a/d8/088ad89bd98763783954b4aa5b957f89.jpg"
+            alt="Carta"
+            class="main-img"
+            onclick="nextScreen(3)">
+
+    </div>
+
+
+    <!-- =================================
+         PANTALLA 3
+         ================================= -->
+
+    <div class="screen" id="screen3">
+
+        <h2>
+            ¡Ábralo!
+        </h2>
+
+        <img
+            src="https://i.pinimg.com/736x/0b/97/89/0b978918f0efa0174a6e72d67f2c442a.jpg"
+            alt="Sobre"
+            class="main-img"
+            onclick="nextScreen(4)">
+
+    </div>
+
+
+    <!-- =================================
+         PANTALLA 4
+         ================================= -->
+
+    <div class="screen" id="screen4">
+
+        <h2>
+            ¿Qué dirá?
+        </h2>
+
+        <img
+            src="https://i.pinimg.com/736x/40/0d/cf/400dcf7b1230e9e6ca787fa30a66c924.jpg"
+            alt="Carta lista"
+            class="main-img"
+            onclick="nextScreen(5)">
+
+    </div>
+
+
+    <!-- =================================
+         PANTALLA 5
+         ================================= -->
+
+    <div class="screen" id="screen5">
+
+        <div class="card">
+
+            <h3>
+                Mi Amorcita
+            </h3>
+
+            <p>
+                Amor de mi vida,
+            </p>
+
+            <p>
+                <strong>
+                    Te amo mucho, mi amor 💖
+                </strong>
+            </p>
+
+            <p>
+                Solo quería recordarte lo importante que eres para mí
+                y lo feliz que me haces cada día.
+            </p>
+
+            <p>
+                Gracias por estar en mi vida y por llenar todo de alegría,
+                incluso en la distancia.
+            </p>
+
+            <p>
+                Eres lo mejor que me ha pasado 💗
+            </p>
+
+            <p>
+                Con todo mi amor para ti 💖
+            </p>
+
+            <div style="text-align: center;">
+
+                <button
+                    class="return-btn"
+                    onclick="nextScreen(1)">
+
+                    😍 TE AMOO
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================
+         API DE YOUTUBE
+         ================================= -->
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+
+    <!-- =================================
+         JAVASCRIPT
+         ================================= -->
+
+    <script>
+
+        /* =========================
+           VARIABLE DEL REPRODUCTOR
+           ========================= */
+
+        let player;
+
+
+        /* =========================
+           YOUTUBE CREA EL REPRODUCTOR
+           ========================= */
+
+        function onYouTubeIframeAPIReady() {
+
+            player = new YT.Player("youtubePlayer");
+
+        }
+
+
+        /* =========================
+           CAMBIAR DE PANTALLA
+           ========================= */
+
+        function nextScreen(num) {
+
+            const current =
+                document.querySelector(".screen.active");
+
+            if (current) {
+
+                current.classList.remove("active");
+
+            }
+
+            document
+                .getElementById("screen" + num)
+                .classList.add("active");
+
+        }
+
+
+        /* =========================
+           PRIMER CLIC
+           ========================= */
+
+        function iniciarCarta() {
+
+            /* Cambiar a la pantalla 2 */
+
+            nextScreen(2);
+
+
+            /* Reproducir YouTube */
+
+            if (player) {
+
+                player.seekTo(34, true);
+
+                player.playVideo();
+
+            }
+
+        }
+
+
+        /* =========================
+           CREAR CORAZONES
+           ========================= */
+
+        function crearCorazon() {
+
+            const corazon =
+                document.createElement("div");
+
+
+            /* Agregar clase CSS */
+
+            corazon.classList.add("heart");
+
+
+            /* Contenido */
+
+            corazon.innerHTML = "❤️";
+
+
+            /* Posición horizontal aleatoria */
+
+            corazon.style.left =
+                Math.random() * 100 + "vw";
+
+
+            /* Tamaño aleatorio */
+
+            corazon.style.fontSize =
+                Math.random() * 20 + 15 + "px";
+
+
+            /* Velocidad aleatoria */
+
+            corazon.style.animationDuration =
+                Math.random() * 3 + 4 + "s";
+
+
+            /* Agregar a la página */
+
+            document.body.appendChild(corazon);
+
+
+            /* Eliminar después de 7 segundos */
+
+            setTimeout(() => {
+
+                corazon.remove();
+
+            }, 7000);
+
+        }
+
+
+        /* =========================
+           CREAR CORAZONES CADA 300 ms
+           ========================= */
+
+        setInterval(crearCorazon, 300);
+
+
+    </script>
+
+</body>
+
+</html>
+```
